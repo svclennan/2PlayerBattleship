@@ -8,6 +8,9 @@ namespace BattleshipGame
 {
     class Carrier : Ship
     {
-        
+        public Carrier()
+        {
+
+        }
     }
 }
