@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Battleship
+namespace BattleshipGame
 {
-    class Submarine : Ship
+    abstract class Ship
     {
-
+        
     }
 }

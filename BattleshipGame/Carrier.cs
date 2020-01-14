@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Battleship
+namespace BattleshipGame
 {
-
-    abstract class Player
+    class Carrier : Ship
     {
-        public string name;
+        
     }
 }

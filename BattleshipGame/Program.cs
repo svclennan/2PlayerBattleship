@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Battleship
+namespace BattleshipGame
 {
     class Program
     {
         static void Main(string[] args)
         {
             Game game = new Game();
+            game.ChooseGameType();
             Console.ReadLine();
             //Example of empty board with row and column labels
             //string[,] board = new string[20, 20];

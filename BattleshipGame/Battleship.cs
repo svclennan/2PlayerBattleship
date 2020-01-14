@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Battleship
+namespace BattleshipGame
 {
-    class Bot : Player
+    class Battleship : Ship
     {
-        public Bot(string name)
-        {
-            this.name = name;
-        }
+
     }
 }

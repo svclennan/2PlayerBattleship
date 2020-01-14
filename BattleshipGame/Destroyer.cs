@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Battleship
+namespace BattleshipGame
 {
-    class Carrier : Ship
+    class Destroyer : Ship
     {
 
     }

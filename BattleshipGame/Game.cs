@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Battleship
+namespace BattleshipGame
 {
     class Game
     {
@@ -14,11 +14,10 @@ namespace Battleship
         public Game()
         {
             userInterface = new UserInterface();
-            BeginGame();
         }
-        public void BeginGame()
+        public void ChooseGameType()
         {
-            string gameChoice = userInterface.GameStart();
+            string gameChoice = userInterface.GameType();
             switch (gameChoice)
             {
                 case "PvP":

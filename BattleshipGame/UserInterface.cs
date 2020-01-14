@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Battleship
+namespace BattleshipGame
 {
     class UserInterface
     {
@@ -12,7 +12,7 @@ namespace Battleship
         {
 
         }
-        public string GameStart()
+        public string GameType()
         {
             Console.WriteLine("Would you like to play\n1)Player vs Player\n2)Player vs Bot\n3)Bot vs Bot");
             string gameChoice = Console.ReadLine();
@@ -33,7 +33,7 @@ namespace Battleship
                 default:
                     {
                         Console.WriteLine("Invalid Input.");
-                        return GameStart();
+                        return GameType();
                     }
             }
         }
