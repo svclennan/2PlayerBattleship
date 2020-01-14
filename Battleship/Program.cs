@@ -10,6 +10,8 @@ namespace Battleship
     {
         static void Main(string[] args)
         {
+            Game game = new Game();
+            Console.ReadLine();
             //Example of empty board with row and column labels
             //string[,] board = new string[20, 20];
             //int count = 1;

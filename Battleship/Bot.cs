@@ -8,6 +8,9 @@ namespace Battleship
 {
     class Bot : Player
     {
-
+        public Bot(string name)
+        {
+            this.name = name;
+        }
     }
 }
