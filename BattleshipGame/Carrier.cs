@@ -9,14 +9,24 @@ namespace BattleshipGame
     class Carrier : Ship
     {
 
-        public Carrier(string owner)
+        public Carrier(string owner, string playerType)
         {
             this.owner = owner;
+            this.letter = "C";
             this.name = "Aircraft Carrier";
             this.spaces = 5;
-            this.startPosition = getCoordinates();
-            this.direction = getDirection();
-            validatePosition();
+            if (playerType == "BOT")
+            {
+                this.startPosition = getBotCoordinates();
+                this.direction = getBotDirection();
+                validateBotPosition();
+            }
+            if (playerType == "PLAYER")
+            {
+                this.startPosition = getPlayerCoordinates();
+                this.direction = getPlayerDirection();
+                validatePosition();
+            }
         }
         
     }

@@ -32,7 +32,6 @@ namespace BattleshipGame
                 case "PvB":
                     {
                         p1 = new Human(userInterface.GetName("Player 1"));
-                        Console.Clear();
                         p2 = new Bot(userInterface.GetName("the Bot"));
                         break;
                     }

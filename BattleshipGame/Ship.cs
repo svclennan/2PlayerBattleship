@@ -13,7 +13,9 @@ namespace BattleshipGame
         public string direction;
         public int spaces;
         public string owner;
-        public string getCoordinates()
+        public string letter;
+        private Random rand = new Random();
+        public string getPlayerCoordinates()
         {
             Console.WriteLine($"{owner}, where do you want to start your {name}?(Order: LetterNumber)");
             string startPos = Console.ReadLine().ToUpper();
@@ -25,7 +27,7 @@ namespace BattleshipGame
                 if (column < Convert.ToChar(65) || column > Convert.ToChar(84))
                 {
                     Console.WriteLine("Invalid letter.");
-                    getCoordinates();
+                    getPlayerCoordinates();
                 }
                 try
                 {
@@ -34,22 +36,22 @@ namespace BattleshipGame
                 catch(Exception)
                 {
                     Console.WriteLine("That is not a number.");
-                    getCoordinates();
+                    getPlayerCoordinates();
                 }
                 if (row < 0 || row > 20)
                 {
                     Console.WriteLine("Invalid number");
-                    getCoordinates();
+                    getPlayerCoordinates();
                 }
                 return startPos;
             }
             else
             {
                 Console.WriteLine("Enter a 2 digit string.");
-                return getCoordinates();
+                return getPlayerCoordinates();
             }
         }
-        public string getDirection()
+        public string getPlayerDirection()
         {
             Console.WriteLine($"Do you want your {name} to go down or to the right?");
             string dir = Console.ReadLine().ToLower();
@@ -66,7 +68,7 @@ namespace BattleshipGame
                 default:
                     {
                         Console.WriteLine("Invalid input.");
-                        return getDirection();
+                        return getPlayerDirection();
                     }
             }
         }
@@ -80,8 +82,8 @@ namespace BattleshipGame
                         if (startPosition[0] > 85 - spaces)
                         {
                             Console.WriteLine("Chosen position is too close to the edge.");
-                            startPosition = getCoordinates();
-                            direction = getDirection();
+                            startPosition = getPlayerCoordinates();
+                            direction = getPlayerDirection();
                             break;
                         }
                         else
@@ -94,8 +96,72 @@ namespace BattleshipGame
                         if(Convert.ToInt32(rowString) > 21 - spaces)
                         {
                             Console.WriteLine("Chosen position is too close to the edge.");
-                            startPosition = getCoordinates();
-                            direction = getDirection();
+                            startPosition = getPlayerCoordinates();
+                            direction = getPlayerDirection();
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                default:
+                    {
+                        Console.WriteLine("This shouldn\'t be possible? Maybe?");
+                        break;
+                    }
+            }
+        }
+        public string getBotCoordinates()
+        {
+            string column = getBotColumn();
+            int row = getBotRow();
+            return column + row;
+        }
+        public string getBotColumn()
+        {
+            return Convert.ToChar(rand.Next(66,91)).ToString();
+        }
+        public int getBotRow()
+        {
+            return rand.Next(1, 22);
+        }
+        public string getBotDirection()
+        {
+            int choice = rand.Next(0, 2);
+            if (choice == 1)
+            {
+                return "right";
+            }
+            else
+            {
+                return "down";
+            }
+        }
+        public void validateBotPosition()
+        {
+            string rowString = startPosition.Remove(0, 1);
+            switch (direction)
+            {
+                case "right":
+                    {
+                        if (startPosition[0] > 85 - spaces)
+                        {
+                            startPosition = getBotCoordinates();
+                            direction = getBotDirection();
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                case "down":
+                    {
+                        if (Convert.ToInt32(rowString) > 21 - spaces)
+                        {
+                            startPosition = getBotCoordinates();
+                            direction = getBotDirection();
                             break;
                         }
                         else
