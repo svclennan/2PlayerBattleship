@@ -22,9 +22,9 @@ namespace BattleshipGame
         }
         public bool set(int column, int row, string letter)
         {
-            if (board[row - 1, column] == " ")
+            if (board[row-1, column] == " ")
             {
-                board[row - 1, column] = letter;
+                board[row-1,column] = letter;
                 return true;
             }
             else

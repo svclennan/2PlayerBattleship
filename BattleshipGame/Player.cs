@@ -13,5 +13,6 @@ namespace BattleshipGame
         public Board ownBoard;
         public Board targetBoard;
         public List<Ship> playerShips;
+        public Random rand;
     }
 }

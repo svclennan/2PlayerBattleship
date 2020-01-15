@@ -14,7 +14,7 @@ namespace BattleshipGame
         public int spaces;
         public string owner;
         public string letter;
-        private Random rand = new Random();
+        public Random rand;
         public string getPlayerCoordinates()
         {
             Console.WriteLine($"{owner}, where do you want to start your {name}?(Order: LetterNumber)");
@@ -79,11 +79,12 @@ namespace BattleshipGame
             {
                 case "right":
                     {
-                        if (startPosition[0] > 85 - spaces)
+                        if (startPosition[0] > 84 - spaces)
                         {
                             Console.WriteLine("Chosen position is too close to the edge.");
                             startPosition = getPlayerCoordinates();
                             direction = getPlayerDirection();
+                            validatePosition();
                             break;
                         }
                         else
@@ -98,6 +99,7 @@ namespace BattleshipGame
                             Console.WriteLine("Chosen position is too close to the edge.");
                             startPosition = getPlayerCoordinates();
                             direction = getPlayerDirection();
+                            validatePosition();
                             break;
                         }
                         else
@@ -120,7 +122,7 @@ namespace BattleshipGame
         }
         public string getBotColumn()
         {
-            return Convert.ToChar(rand.Next(66,91)).ToString();
+            return Convert.ToChar(rand.Next(65,85)).ToString();
         }
         public int getBotRow()
         {
@@ -129,7 +131,7 @@ namespace BattleshipGame
         public string getBotDirection()
         {
             int choice = rand.Next(0, 2);
-            if (choice == 1)
+            if (choice == 0)
             {
                 return "right";
             }
@@ -145,10 +147,12 @@ namespace BattleshipGame
             {
                 case "right":
                     {
-                        if (startPosition[0] > 85 - spaces)
+                        if (startPosition[0] > 84 - spaces)
                         {
+                            Console.WriteLine("Too close to edge. " + startPosition[0]);
                             startPosition = getBotCoordinates();
                             direction = getBotDirection();
+                            validateBotPosition();
                             break;
                         }
                         else
@@ -160,8 +164,10 @@ namespace BattleshipGame
                     {
                         if (Convert.ToInt32(rowString) > 21 - spaces)
                         {
+                            Console.WriteLine("To close to edge. " + rowString);
                             startPosition = getBotCoordinates();
                             direction = getBotDirection();
+                            validateBotPosition();
                             break;
                         }
                         else

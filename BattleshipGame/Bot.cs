@@ -13,12 +13,14 @@ namespace BattleshipGame
             this.name = name;
             targetBoard = new Board();
             ownBoard = new Board();
+            this.rand = new Random();
+            this.rand.Next();
             ShipSetup();
             BoardSetup();
         }
         public void ShipSetup()
         {
-            playerShips = new List<Ship> { new Carrier(name, "BOT"), new Battleship(name, "BOT"), new Submarine(name, "BOT"), new Destroyer(name, "BOT") };
+            playerShips = new List<Ship> { new Carrier(name, "BOT", this.rand), new Battleship(name, "BOT"), new Submarine(name, "BOT"), new Destroyer(name, "BOT") };
         }
         public void BoardSetup()
         {
@@ -32,6 +34,7 @@ namespace BattleshipGame
                     if (!ownBoard.set(startColumn - 65, startRow, fleet.letter))
                     {
                         ShipSetup();
+                        break;
                     }
                     if (fleet.direction == "down")
                     {
