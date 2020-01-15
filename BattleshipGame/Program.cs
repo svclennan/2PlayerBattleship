@@ -10,9 +10,12 @@ namespace BattleshipGame
     {
         static void Main(string[] args)
         {
-            Game game = new Game();
-            game.ChooseGameType();
-            Console.ReadLine();
+            //Console.WriteLine(Convert.ToChar(65));
+            //Console.WriteLine(Convert.ToChar("A"));
+            //Console.WriteLine((Convert.ToChar("R") > 84 - 5));
+            //Game game = new Game();
+            //game.ChooseGameType();
+            //Console.ReadLine();
             //Example of empty board with row and column labels
             //string[,] board = new string[20, 20];
             //int count = 1;

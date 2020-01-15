@@ -8,9 +8,16 @@ namespace BattleshipGame
 {
     class Carrier : Ship
     {
-        public Carrier()
-        {
 
+        public Carrier(string owner)
+        {
+            this.owner = owner;
+            this.name = "Aircraft Carrier";
+            this.spaces = 5;
+            this.startPosition = getCoordinates();
+            this.direction = getDirection();
+            validatePosition();
         }
+        
     }
 }

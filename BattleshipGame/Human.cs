@@ -17,7 +17,7 @@ namespace BattleshipGame
         }
         public List<Ship> BoardSetup()
         {
-            return new List<Ship> {new Carrier(), new Battleship(), new Submarine(), new Destroyer()};
+            return new List<Ship> {new Carrier(name), new Battleship(name), new Submarine(name), new Destroyer(name)};
         }
     }
 }

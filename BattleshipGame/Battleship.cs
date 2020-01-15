@@ -8,6 +8,14 @@ namespace BattleshipGame
 {
     class Battleship : Ship
     {
-
+        public Battleship(string owner)
+        {
+            this.owner = owner;
+            this.name = "Battleship";
+            this.spaces = 4;
+            this.startPosition = getCoordinates();
+            this.direction = getDirection();
+            validatePosition();
+        }
     }
 }
